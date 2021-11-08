@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>AhorrADAs</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--Hoja de CSS-->
+        <link rel="stylesheet" href="style.css">
+        <!--Link BULMA-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+        <!--Link FONTAWESOME-->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    </head>
+    <body>
+
+        <!--Comienzo NAVBAR-->
+        <nav class="navbar is-primary">
+            <div class="navbar-brand"> 
+                <a class="navbar-item button is-primary title ml-4 my-"> 
+                        <span class="icon">
+                            <i class="fas fa-folder"></i> 
+                        </span>
+                            <span>AhorrADAs</span>
+                </a>
+            </div>
+
+            <div class="navbar-menu">
+                <div class="navbar-end">
+                    <span class="navbar-item">
+                        <a class="button is-primary">
+                            <span class="icon">
+                                <i class="fas fa-chart-line"></i> 
+                            </span>
+                                <span id="btn-balance">Balance</span>
+                        </a>
+                    </span>
+                    <span class="navbar-item">
+                        <a class="button is-primary">
+                            <span class="icon">
+                                <i class="fas fa-tag"></i> 
+                            </span>
+                                <span id="btn-categoria">Categorías</span>
+                        </a>
+                    </span>
+                    <span class="navbar-item">
+                        <a class="button is-primary">
+                            <span class="icon">
+                                <i class="fas fa-chart-pie"></i> 
+                            </span>
+                                <span id="btn-reportes">Reportes</span>
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </nav>
+
+
+        <!--Comienzo SECTION BALANCE-->
+        <section class="section" id="section-balance">
+        <div class="container"> <!-- esto lo centra pero no me queda igual en el medio de la pagina-->
+            <div class="tile is-ancestor"> 
+                <div class="tile is-3 is-parent is-vertical">
+
+
+        <!--Comienzo de las 3 cajas de Balance-->
+        <!--Caja Balance-->
+                    <div class="tile is-child box"> 
+                        <h1 class="title pb-4">Balance</h1> 
+                            <div id="ganancias-div" class="my-5">
+                                <span class="subtitle">Ganancias</span> 
+                                <span id="ganancias-saldo">+$0</span> <!-- como hacer para que quede a la derecha-->
+                            </div>
+                            <div id="gastos-div" class="my-5">
+                                <span class="subtitle">Gastos</span> 
+                                <span id="gastos-saldo">-$0</span> <!-- como hacer para que quede a la derecha-->
+                            </div>
+                            <div id="total-div" class="my-5">
+                                <span class="subtitle is-size-4">Total</span>  
+                                <span id="total-saldo">$0</span> <!-- como hacer para que quede a la derecha-->
+                            </div>
+                    </div>
+        <!--Caja Filtros-->
+                    <div class="tile is-child box">
+                        <span class="title">Filtros</span>
+                        <span class="has-text-right">Ocultar filtros</span> <!-- como hacer para que quede a la derecha-->
+                        <form>
+                            <div class="control mb-2">
+                                <h1 class="is-size-5 mt-4 has-text-weight-bold">Tipo</h1> 
+                                <div class="select is-small"> 
+                                    <select>
+                                        <option>Todos</option>
+                                        <option>Gastos</option>
+                                        <option>Ganancias</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="control">
+                                <h1 class="is-size-5 mt-4 has-text-weight-bold">Categorías</h1>
+                                <div class="select is-small"> 
+                                    <select>
+                                        <option>Todas</option>
+                                        <option>Comida</option>
+                                        <option>Servicios</option>
+                                        <option>Salidas</option>
+                                        <option>Educación</option>
+                                        <option>Transporte</option>
+                                        <option>Trabajo</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="control">
+                                <h1 class="is-size-5 mt-4 has-text-weight-bold">Desde</h1> 
+                                <input type="date">
+                            </div>
+
+
+                            <div class="control">
+                                <h1 class="is-size-5 mt-4 has-text-weight-bold">Ordenar por</h1> 
+                                <div class="select is-small"> 
+                                    <select>
+                                        <option>Mas reciente</option>
+                                        <option>Menos reciente</option>
+                                        <option>Mayor precio</option>
+                                        <option>Menor precio</option>
+                                        <option>A/Z</option>
+                                        <option>Z/A</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+    
+        <!--Caja Operaciones-->
+                <div class="tile is-parent">
+                    <div class="tile is-child box"> 
+                        <span class="title">Operaciones</span>
+                        <span>
+                            <a class="button is-primary has-text-right">
+                                <span>+ Nueva Operación</span>
+                        </a></span>
+
+                        <div class="has-text-centered px-5 py-5">
+                            <figure class="image is-250x250 mx-6 px-6 py-6 mx-6"> <!-- NO ME TOMA LAS DIMENSIONES DE LA IMAGEN -->
+                                <img src="SVG/undraw_key_points_ig28.svg" alt="key-points">
+                            </figure>
+                            <p class="subtitle has-text-weight-bold">Sin Resultados</p>
+                            <p>Cambia los filtros o agrega operaciones</p>
+                        </div>
+                    </div>
+
+                    
+                </div>
+    
+            </div>
+        </div>
+        </section>
+
+        
+        
+        <!-- Comienzo de button > + nueva operación --> 
+            <section class="section is-hidden">
+                <div class="container">
+                    <div class="tile is-ancestor"> 
+                        <div class="tile is-9 is-parent">
+                            <div class="tile is-child box mb-5"> 
+                                <h1 class="title has-text-weight-bold mb-6">Nueva operación</h1> 
+                            
+        <!-- Opciones de la lista de la nueva operación-->
+                                <div class="control mb-2">
+                                    <h1 class="my-4 has-text-weight-bold">Descripción</h1>
+                                    <input class="input" type="text">
+                                </div>
+                                <div class="control mb-2">
+                                    <h1 class="my-4 has-text-weight-bold">Monto</h1>
+                                    <input class="input" type="text"> <!-- chequear cual era la opcion para incrementar -->
+                                </div>
+                                <div class="control mb-2">
+                                    <h1 class="my-4 has-text-weight-bold">Tipo</h1>
+                                    <div class="select is-small"> 
+                                        <select>
+                                            <option>Gasto</option>
+                                            <option>Ganancia</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="control mb-2">
+                                    <h1 class="my-4 has-text-weight-bold">Categoría</h1>
+                                    <div class="select is-small">
+                                        <select>
+                                            <option>Servicios</option>
+                                            <option>Salidas</option>
+                                            <option>Educación</option>
+                                            <option>Transporte</option>
+                                            <option>Trabajo</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="control mb-2">
+                                    <h1 class="my-4 has-text-weight-bold">Fecha</h1>
+                                    <input type="date">
+                                </div>
+                            </div>
+                    </div>
+                </div>
+        </section>
+
+
+
+        <!--Comienzo SECTION CATEGORIA >> chequear como utilizar la clase is-hidden -->
+        <section class="section is-hidden" id="section-categoria">
+            <div class="container">
+                <div class="tile is-ancestor"> 
+                    <div class="tile is-parent">
+                        <div class="tile is-child box mb-5"> 
+                            <h1 class="title has-text-weight-bold mb-6">Categorías</h1> 
+                            <p class="subtitle has-text-weight-bold mt-6">Nombre</p>
+                            <form class="mb-6">
+                                <input class="input is-primary" type="text" placeholder="Agregue una nueva categoría">
+                                <span> 
+                                    <a class="button is-primary has-text-right">
+                                        <span>Agregar</span>
+                                </a></span> <!-- NO ME QUEDA EN UNA MISMA LINEA-->
+                            </form>
+
+
+        <!--Opciones de categorías-->
+                        <div>                    
+                            <div class="columns">
+                                <div class="column is-9">
+                                    <p>Comida</p>
+                                </div>
+                                <div class="column is-3">
+                                        <a href="#" class="mx-3">Editar</a>
+                                        <a href="#" class="mx-3">Eliminar</a>
+                                </div>
+                            </div>
+                            <div class="columns">
+                                <div class="column is-9">
+                                    <p>Servicios</p>
+                                </div>
+                                <div class="column is-3">
+                                        <a href="#" class="mx-3">Editar</a>
+                                        <a href="#" class="mx-3">Eliminar</a>
+                                </div>
+                            </div>
+                            <div class="columns">
+                                <div class="column is-9">
+                                    <p>Salidas</p>
+                                </div>
+                                <div class="column is-3">
+                                        <a href="#" class="mx-3">Editar</a>
+                                        <a href="#" class="mx-3">Eliminar</a>
+                                </div>
+                            </div>
+                            <div class="columns">
+                                <div class="column is-9">
+                                    <p>Educación</p>
+                                </div>
+                                <div class="column is-3">
+                                        <a href="#" class="mx-3">Editar</a>
+                                        <a href="#" class="mx-3">Eliminar</a>
+                                </div>
+                            </div>
+                            <div class="columns">
+                                <div class="column is-9">
+                                    <p>Transporte</p>
+                                </div>
+                                <div class="column is-3">
+                                        <a href="#" class="mx-3">Editar</a>
+                                        <a href="#" class="mx-3">Eliminar</a>
+                                </div>
+                            </div>
+                            <div class="columns">
+                                <div class="column is-9">
+                                    <p>Trabajo</p>
+                                </div>
+                                <div class="column is-3">
+                                        <a href="#" class="mx-3">Editar</a>
+                                        <a href="#" class="mx-3">Eliminar</a>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- Caja edición de categorías-->
+        <section class="section is-hidden"> <!-- agregar clase is-hidden > investigar su uso-->
+            <div class="container">
+                <div class="tile is-ancestor"> 
+                    <div class="tile is-9 is-parent">
+                        <div class="tile is-child box mb-5"> 
+                            <h1 class="title has-text-weight-bold mb-6">Editar categoría</h1> 
+                            <p class="subtitle has-text-weight-bold mt-6">Nombre</p>
+                            <form class="mb-6">
+                                <input class="input" type="text">
+                                <span> 
+                                    <a class="button has-text-right"> <!-- no me queda el boton a la derecha-->
+                                        <span>Editar</span>
+                                    </a>
+                                </span>
+                                <span> 
+                                    <a class="button has-text-right"> <!-- no me queda el boton a la derecha-->
+                                        <span>Cancelar</span>
+                                    </a>
+                                </span>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+
+        <!--Comienzo SECTION REPORTES-->
+        <section class="section is-hidden" id="section-reportes">
+            <div class="container">
+                <div class="tile is-ancestor"> 
+                    <div class="tile is-parent">
+                        <div class="tile is-child box mb-5"> 
+                            <h1 class="title has-text-weight-bold mb-6">Reportes</h1>
+                            <div class="has-text-centered">
+                                <figure class="image is-150x150 mx-6 px-6 py-6 mx-6"> <!-- NO ME TOMA LAS MEDIDAS DE LA IMAGEN-->
+                                    <img src="SVG/undraw_in_progress_re_m1l6.svg" alt="in-progress">
+                                </figure> 
+                                <p class="subtitle has-text-weight-bold">Operaciones insuficientes</p>
+                                <p>Prueba agregando más operaciones</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <script src="archivojs.js"></script>
+    </body>
+</html>
