@@ -59,32 +59,36 @@
 
         <!--Comienzo SECTION BALANCE-->
         <section class="section" id="section-balance">
-        <div class="container"> <!-- esto lo centra pero no me queda igual en el medio de la pagina-->
+        <div class="container"> 
             <div class="tile is-ancestor"> 
                 <div class="tile is-3 is-parent is-vertical">
 
 
         <!--Comienzo de las 3 cajas de Balance-->
         <!--Caja Balance-->
-                    <div class="tile is-child box"> 
-                        <h1 class="title pb-4">Balance</h1> 
-                            <div id="ganancias-div" class="my-5">
-                                <span class="subtitle">Ganancias</span> 
-                                <span id="ganancias-saldo">+$0</span> <!-- como hacer para que quede a la derecha-->
+                    <div class="box"> 
+                        <h1 class="title">Balance</h1>
+                         
+                            <div class="columns my-2 is-size-5">
+                                <div class="column is-6">Ganancias</div>
+                                <div class="column is-6 has-text-right px-5" id="ganancias-saldo">+$0</div>
                             </div>
-                            <div id="gastos-div" class="my-5">
-                                <span class="subtitle">Gastos</span> 
-                                <span id="gastos-saldo">-$0</span> <!-- como hacer para que quede a la derecha-->
+                            <div class="columns my-2 is-size-5">
+                                <div class="column is-6">Gastos</div>
+                                    <div class="column is-6 has-text-right px-5" id="gastos-saldo">-$0</div> 
                             </div>
-                            <div id="total-div" class="my-5">
-                                <span class="subtitle is-size-4">Total</span>  
-                                <span id="total-saldo">$0</span> <!-- como hacer para que quede a la derecha-->
+                            <div class="columns my-2 is-size-5">
+                                <div class="column is-6">Total</div>  
+                                <div class="column is-6 has-text-right px-5 has-text-weight-bold" id="total-saldo">$0</div>
                             </div>
+                        
                     </div>
+
+
         <!--Caja Filtros-->
-                    <div class="tile is-child box">
-                        <span class="title">Filtros</span>
-                        <span class="has-text-right">Ocultar filtros</span> <!-- como hacer para que quede a la derecha-->
+                    <div class="box"> <!-- COMO HACER PARA QUE QUEDEN LAS CAJAS EN MISMA LINEA-->
+                        <div class="title">Filtros</div>
+                        <a class="has-text-right">Ocultar filtros</a>
                         <form>
                             <div class="control mb-2">
                                 <h1 class="is-size-5 mt-4 has-text-weight-bold">Tipo</h1> 
@@ -137,22 +141,27 @@
                 </div>
     
         <!--Caja Operaciones-->
-                <div class="tile is-parent">
-                    <div class="tile is-child box"> 
-                        <span class="title">Operaciones</span>
-                        <span>
-                            <a class="button is-primary has-text-right">
-                                <span>+ Nueva Operación</span>
-                        </a></span>
+                <div class="box"> 
+                    <div class="columns">
+                        <div class="column is-6">
+                            <span class="title">Operaciones</span>
+                        </div>
+                        <div class="column is-6 has-text-right">
+                            <span>
+                                <a class="button is-primary  btn-nva-op">
+                                    <span>+ Nueva Operación</span>
+                                </a>
+                            </span>
+                        </div>
+                    </div>
 
                         <div class="has-text-centered px-5 py-5">
-                            <figure class="image is-250x250 mx-6 px-6 py-6 mx-6"> <!-- NO ME TOMA LAS DIMENSIONES DE LA IMAGEN -->
+                            <figure class="image is-250x250 mx-6 px-6 py-6 mx-6">
                                 <img src="SVG/undraw_key_points_ig28.svg" alt="key-points">
                             </figure>
                             <p class="subtitle has-text-weight-bold">Sin Resultados</p>
                             <p>Cambia los filtros o agrega operaciones</p>
                         </div>
-                    </div>
 
                     
                 </div>
@@ -164,11 +173,9 @@
         
         
         <!-- Comienzo de button > + nueva operación --> 
-            <section class="section is-hidden">
+            <section class="section is-hidden" id="nva-operacion">
                 <div class="container">
-                    <div class="tile is-ancestor"> 
-                        <div class="tile is-9 is-parent">
-                            <div class="tile is-child box mb-5"> 
+                    <div class="box"> 
                                 <h1 class="title has-text-weight-bold mb-6">Nueva operación</h1> 
                             
         <!-- Opciones de la lista de la nueva operación-->
@@ -178,7 +185,7 @@
                                 </div>
                                 <div class="control mb-2">
                                     <h1 class="my-4 has-text-weight-bold">Monto</h1>
-                                    <input class="input" type="text"> <!-- chequear cual era la opcion para incrementar -->
+                                    <input class="input" type="number" min="-100000000000" placeholder="0"> 
                                 </div>
                                 <div class="control mb-2">
                                     <h1 class="my-4 has-text-weight-bold">Tipo</h1>
@@ -201,10 +208,15 @@
                                         </select>
                                     </div>
                                 </div>
+
                                 <div class="control mb-2">
                                     <h1 class="my-4 has-text-weight-bold">Fecha</h1>
                                     <input type="date">
                                 </div>
+
+                            <div class="mt-5 has-text-right">
+                                    <button class="button mx-4" id="cancel-new-op">Cancelar</button>
+                                    <button class="button is-success mx-4" id="add-new-op">Agregar</button>
                             </div>
                     </div>
                 </div>
@@ -212,89 +224,100 @@
 
 
 
-        <!--Comienzo SECTION CATEGORIA >> chequear como utilizar la clase is-hidden -->
+        <!--Comienzo SECTION CATEGORIA-->
         <section class="section is-hidden" id="section-categoria">
-            <div class="container">
-                <div class="tile is-ancestor"> 
-                    <div class="tile is-parent">
-                        <div class="tile is-child box mb-5"> 
+                        
+                        <div class="box mb-5"> 
                             <h1 class="title has-text-weight-bold mb-6">Categorías</h1> 
                             <p class="subtitle has-text-weight-bold mt-6">Nombre</p>
                             <form class="mb-6">
-                                <input class="input is-primary" type="text" placeholder="Agregue una nueva categoría">
-                                <span> 
-                                    <a class="button is-primary has-text-right">
-                                        <span>Agregar</span>
-                                </a></span> <!-- NO ME QUEDA EN UNA MISMA LINEA-->
+                                <div class="field is-grouped">
+                                    <input class="input is-primary mr-4" type="text" placeholder="Agregue una nueva categoría">
+                                    <span> 
+                                        <a class="button is-primary has-text-right">
+                                            <span>Agregar</span>
+                                        </a>
+                                    </span> 
+                                </div>
                             </form>
-
 
         <!--Opciones de categorías-->
                         <div>                    
                             <div class="columns">
-                                <div class="column is-9">
+                                <div class="column is-10">
                                     <p>Comida</p>
                                 </div>
-                                <div class="column is-3">
-                                        <a href="#" class="mx-3">Editar</a>
-                                        <a href="#" class="mx-3">Eliminar</a>
-                                </div>
+                                    <div class="column is-1">
+                                        <a class="mx-3">Editar</a>
+                                    </div>
+                                    <div class="column is-1">
+                                        <a class="mx-3">Eliminar</a>
+                                    </div>
                             </div>
                             <div class="columns">
-                                <div class="column is-9">
+                                <div class="column is-10">
                                     <p>Servicios</p>
                                 </div>
-                                <div class="column is-3">
-                                        <a href="#" class="mx-3">Editar</a>
-                                        <a href="#" class="mx-3">Eliminar</a>
-                                </div>
+                                    <div class="column is-1">
+                                        <a class="mx-3">Editar</a>
+                                    </div>
+                                    <div class="column is-1">
+                                        <a class="mx-3">Eliminar</a>
+                                    </div>
                             </div>
                             <div class="columns">
-                                <div class="column is-9">
-                                    <p>Salidas</p>
-                                </div>
-                                <div class="column is-3">
-                                        <a href="#" class="mx-3">Editar</a>
-                                        <a href="#" class="mx-3">Eliminar</a>
-                                </div>
-                            </div>
-                            <div class="columns">
-                                <div class="column is-9">
+                                <div class="column is-10">
                                     <p>Educación</p>
                                 </div>
-                                <div class="column is-3">
-                                        <a href="#" class="mx-3">Editar</a>
-                                        <a href="#" class="mx-3">Eliminar</a>
-                                </div>
+                                    <div class="column is-1">
+                                        <a class="mx-3">Editar</a>
+                                    </div>
+                                    <div class="column is-1">
+                                        <a class="mx-3">Eliminar</a>
+                                    </div>
                             </div>
                             <div class="columns">
-                                <div class="column is-9">
+                                <div class="column is-10">
                                     <p>Transporte</p>
                                 </div>
-                                <div class="column is-3">
-                                        <a href="#" class="mx-3">Editar</a>
-                                        <a href="#" class="mx-3">Eliminar</a>
-                                </div>
+                                    <div class="column is-1">
+                                        <a class="mx-3">Editar</a>
+                                    </div>
+                                    <div class="column is-1">
+                                        <a class="mx-3">Eliminar</a>
+                                    </div>
                             </div>
                             <div class="columns">
-                                <div class="column is-9">
+                                <div class="column is-10">
                                     <p>Trabajo</p>
                                 </div>
-                                <div class="column is-3">
-                                        <a href="#" class="mx-3">Editar</a>
-                                        <a href="#" class="mx-3">Eliminar</a>
+                                    <div class="column is-1">
+                                        <a class="mx-3">Editar</a>
+                                    </div>
+                                    <div class="column is-1">
+                                        <a class="mx-3">Eliminar</a>
+                                    </div>
+                            </div>
+                            <div class="columns">
+                                <div class="column is-10">
+                                    <p>Salidas</p>
                                 </div>
+                                    <div class="column is-1">
+                                        <a class="mx-3">Editar</a>
+                                    </div>
+                                    <div class="column is-1">
+                                        <a class="mx-3">Eliminar</a>
+                                    </div>
                             </div>
                         </div>
                         </div>
-                </div>
-            </div>
+
         </section>
 
 
 
         <!-- Caja edición de categorías-->
-        <section class="section is-hidden"> <!-- agregar clase is-hidden > investigar su uso-->
+        <section class="section is-hidden" id="section-edicion-categorias"> 
             <div class="container">
                 <div class="tile is-ancestor"> 
                     <div class="tile is-9 is-parent">
@@ -303,16 +326,23 @@
                             <p class="subtitle has-text-weight-bold mt-6">Nombre</p>
                             <form class="mb-6">
                                 <input class="input" type="text">
-                                <span> 
-                                    <a class="button has-text-right"> <!-- no me queda el boton a la derecha-->
-                                        <span>Editar</span>
-                                    </a>
-                                </span>
-                                <span> 
-                                    <a class="button has-text-right"> <!-- no me queda el boton a la derecha-->
-                                        <span>Cancelar</span>
-                                    </a>
-                                </span>
+                                <div class="columns mt-4">
+                                    <div class="is-offset-4"></div>
+                                    <div class="column is-1 mx-5">
+                                        <span> 
+                                            <a class="button"> <!-- no me queda el boton a la derecha-->
+                                                <span>Editar</span>
+                                            </a>
+                                        </span>
+                                    </div>
+                                    <div class="column is-1 mx-5">
+                                        <span> 
+                                            <a class="button"> <!-- no me queda el boton a la derecha-->
+                                                <span>Cancelar</span>
+                                            </a>
+                                        </span>
+                                    </div>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -334,10 +364,10 @@
                         <div class="tile is-child box mb-5"> 
                             <h1 class="title has-text-weight-bold mb-6">Reportes</h1>
                             <div class="has-text-centered">
-                                <figure class="image is-150x150 mx-6 px-6 py-6 mx-6"> <!-- NO ME TOMA LAS MEDIDAS DE LA IMAGEN-->
+                                <figure class="image img-reporte is-centered px-6 py-6">
                                     <img src="SVG/undraw_in_progress_re_m1l6.svg" alt="in-progress">
                                 </figure> 
-                                <p class="subtitle has-text-weight-bold">Operaciones insuficientes</p>
+                                <p class="subtitle has-text-weight-bold pt-6">Operaciones insuficientes</p>
                                 <p>Prueba agregando más operaciones</p>
                             </div>
                         </div>
@@ -345,6 +375,7 @@
                 </div>
             </div>
         </section>
+        
 
 
         <script src="archivojs.js"></script>

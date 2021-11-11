@@ -4,3 +4,21 @@
 body{
     background-color: rgb(233, 233, 233);
 }
+
+/*SECTION BALANCE*/
+/*caja balance > colores*/
+#ganancias-saldo{
+    color:rgb(35, 165, 35);
+}
+
+#gastos-saldo{
+    color: rgb(192, 0, 0);
+}
+
+
+/*SECTION REPORTES*/
+
+/*imagen*/
+.img-reporte{
+    width: 70%;
+}
